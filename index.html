@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #0B0D17;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            border-radius: 10px;
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(15px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .profile {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .profile h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        .profile p {
+            margin: 5px 0 10px;
+            font-size: 14px;
+            color: #AFC2E8;
+        }
+
+        .avatar {
+            width: 180px;
+            height: 180px;
+            background-image:url('https://pbs.twimg.com/profile_images/570968331717316608/oxlEbrCT_400x400.jpeg'); border-radius: 20%;
+        }
+
+        .contact-info {
+            margin-top: 10px;
+            font-size: 12px;
+        }
+
+        .contact-info a {
+            color: #67A6FF;
+      font-size: 13px;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-info a:hover {
+            color: #90C3FF;
+        }
+
+        .focus {
+            margin-top: 20px;
+            padding: 20px;
+            background: rgba(20, 33, 61, 0.85);
+            backdrop-filter: blur(15px);
+            border-radius: 10px;
+            animation: focusLoad 2s ease-in-out;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+        }
+
+        @keyframes focusLoad {
+            0% {
+                opacity: 0;
+                transform: scale(0.7);
+            }
+            50% {
+                opacity: 0.5;
+                transform: scale(1.02);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .focus h2 {
+            margin: 0 0 10px;
+            font-size: 20px;
+        }
+
+        .focus ul {
+            list-style: none;
+            padding: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .focus li {
+            font-size: 14px;
+            position: relative;
+        }
+
+        .focus li::before {
+            content: '\2022';
+            color: #67A6FF;
+            font-weight: bold;
+            display: inline-block;
+            margin-right: 8px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="profile">
+                <h1>Brandon Ayers</h1>
+                <p>Phone Nerd | Movie Snob | Academic Delinquent</p>
+                <div class="contact-info">
+                    
+                    
+                    <p><a href="https://linkedin.com/in/brandonayerss" target="_blank">linkedin</a></p>
+                    <p><a href="https://github.com/johndoe" target="_blank">Resume</a></p>
+                </div>
+            </div>
+            <div class="avatar"></div>
+        </div>
+        <div class="focus">
+            <h2>Focus</h2>
+            <ul>
+                <li>Web Development</li>
+                <li>Machine Learning</li>
+                <li>Mobile App Development</li>
+                <li>Cloud Architecture</li>
+                <li>DevOps & CI/CD</li>
+                <li>Blockchain Technology<br>
+</li>
+              
+            </ul>
+      </div>
+    </div>
+</body>
+</html>
+
+
