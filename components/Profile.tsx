@@ -20,7 +20,7 @@ const focusPoints = [
   "Product/Feature Expansion",
   "Permission Exploitation",
   "Mobile App Development",
-  "Hacking and Experimentation"
+  "Hacking and Experimentation",
   "Sub Bullets?"
 ]
 
