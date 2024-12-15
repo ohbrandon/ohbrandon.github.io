@@ -67,7 +67,7 @@ padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset
             }
         }
 
-        .header {
+      header {
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -89,17 +89,17 @@ padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset
             font-size: 14px;
             color: #AFC2E8;
         }
- .foot {
-            margin-top: 20px;
-            padding: 5px;
-            font-size: 10px;
-            color: #1b234b;
-         text-align: center;
-            backdrop-filter: blur(15px);
-            border-radius: 10px;
-            animation: focusLoad 3s ease-in-out;
-           
-        }
+
+      footer {
+        margin-top: 20px;
+        padding: 5px;
+        font-size: 10px;
+        color: #1b234b;
+        text-align: center;
+        backdrop-filter: blur(15px);
+        border-radius: 10px;
+        animation: focusLoad 3s ease-in-out;
+      }
 
         .avatar {
             width: 136px;
@@ -211,7 +211,7 @@ img:hover {
 </head>
 <body>
     <div class="container">
-        <div class="header">
+      <header>
             <div class="profile">
                 <h1>Brandon Ayers</h1>
                 <p>Phone Nerd, Academic Delinquent, Movie Snob</p>
@@ -228,6 +228,7 @@ img:hover {
             <div class="avatar">
 <img src="https://raw.githubusercontent.com/ohbrandon/ohbrandon.github.io/refs/heads/main/thumb.jpg"></div>
         </div>
+      </header>
         <div class="focus">
             <h2>Focus</h2>
             <ul>
@@ -241,7 +242,14 @@ img:hover {
       </div>
 
     </div>
-<div class="foot">© 2025 Brandon Ayers | Made in Texas <img src="https://raw.githubusercontent.com/ohbrandon/ohbrandon.github.io/refs/heads/main/texas.png" style="width:10px; vertical-align:middle" alt="Texas!"></div>
+<footer>
+© 2025 Brandon Ayers | Made in Texas
+<img
+src="https://raw.githubusercontent.com/ohbrandon/ohbrandon.github.io/refs/heads/main/texas.png"
+style="width: 10px; vertical-align: middle"
+alt="Texas!"
+      />
+    </footer>
 </body>
 </html>
 
