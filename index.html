@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 
     <meta property="og:type" content="profile" />
     <meta property="og:title" content="Brandon Ayers | Information & CV" />
@@ -24,10 +24,10 @@
 
     <title>Brandon Ayers | Information & CV</title>
 
-<script defer src="https://cloud.umami.is/script.js" data-website-id="36ba1462-d2b5-44fc-b0d6-250b2f3ba013"></script>
+    <script defer src="https://cloud.umami.is/script.js" data-website-id="36ba1462-d2b5-44fc-b0d6-250b2f3ba013"></script>
 
-<link rel="icon" type="image/x-icon" href="https://github.com/ohbrandon/ohbrandon.github.io/raw/refs/heads/main/favicon.ico">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans">  
+    <link rel="icon" type="image/x-icon" href="https://github.com/ohbrandon/ohbrandon.github.io/raw/refs/heads/main/favicon.ico">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans">  
 
     <style>
         body {
@@ -36,7 +36,7 @@
             background-color: #0B0D17;
             color: white;
             overflow-x: hidden;
-padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+            padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
         }
 
         .container {
@@ -61,7 +61,7 @@ padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset
             }
         }
 
-        .header {
+        header {
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -79,54 +79,58 @@ padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset
 
         .profile p {
             margin: 5px 0 10px;
-	    padding: 0px 10px 0px 0px;
+    	    padding: 0px 10px 0px 0px;
             font-size: 14px;
             color: #AFC2E8;
         }
- .foot {
+
+        footer {
             margin-top: 20px;
             padding: 5px;
             font-size: 10px;
             color: #1b234b;
-         text-align: center;
+            text-align: center;
             backdrop-filter: blur(15px);
             border-radius: 10px;
             animation: focusLoad 3s ease-in-out;
-           
+        }
+
+        footer img {
+            vertical-align: middle;
+            width: 10px;
         }
 
         .avatar {
             width: 136px;
             height: 180px;
             border-radius: 10px;
-            
-              img {
+        }
+
+        .avatar img {
             max-width: 136px;
             height: auto;
-border-radius: 10px;
-  object-fit: cover;
-
+            border-radius: 10px;
+            object-fit: cover;
         }
-        }
-
 
         .contact-info {
             margin-top: 10px;
             font-size: 12px;
-img {
-    opacity: 0.85;
-    transition: 0.5s;
-}
-img:hover {
-    opacity: 1.0;
-    transition: 0.5s;
-}
+        }
 
+        .contact-info img {
+            opacity: 0.85;
+            transition: opacity 0.5s;
+            width: 64px;
+        }
+
+        .contact-info img:hover {
+            opacity: 1;
         }
 
         .contact-info a {
             color: #67A6FF;
-      font-size: 13px;
+            font-size: 13px;
             text-decoration: none;
             transition: color 0.3s ease;
         }
@@ -165,23 +169,23 @@ img:hover {
         .focus h2 {
             margin: 0 0 10px;
             font-size: 20px;
-	    opacity: 0.90;
+	        opacity: 0.90;
         }
 
         .focus ul {
             list-style: none;
+    	    list-style-position: outside;
             padding: 0;
             display: grid;
             grid-template-columns: 1fr 1fr;
-	    list-style-position: outside;
             gap: 10px;
         }
 
         .focus li {
             font-size: 14px;
-    position:relative;
-    padding-left:16px;
-	    opacity: 0.90;
+            position: relative;
+            padding-left: 16px;
+            opacity: 0.90;
         }
 
         .focus li::before {
@@ -190,52 +194,61 @@ img:hover {
             font-weight: bold;
             display: inline-block;
             margin-right: 8px;
-    position:absolute;
-    top:0;
-    left:0;
+            position:absolute;
+            top: 0;
+            left: 0;
         }
-/* Remove Blue Link Highlights on Mobile */
-* {
-    -webkit-tap-highlight-color: rgba(255, 255, 255, 0) !important; 
-    -webkit-focus-ring-color: rgba(255, 255, 255, 0) !important; 
-    outline: none !important;
-}
 
+        /* Remove Blue Link Highlights on Mobile */
+        * {
+            -webkit-tap-highlight-color: rgba(255, 255, 255, 0) !important; 
+            -webkit-focus-ring-color: rgba(255, 255, 255, 0) !important; 
+            outline: none !important;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="header">
+        <header>
             <div class="profile">
                 <h1>Brandon Ayers</h1>
                 <p>Phone Nerd, Academic Delinquent, Movie Snob</p>
                 <div class="contact-info">
-                    
-                    
-<p>
-                                            <a href="https://tinyurl.com/yunu2p82" target="_blank"><img src="https://raw.githubusercontent.com/ohbrandon/ohbrandon.github.io/refs/heads/main/resume.png" style="width:64px;" alt="PDF Resume"></a>
-                                            <a href="https://linkedin.com/in/brandonayerss" target="_blank"><img src="https://raw.githubusercontent.com/ohbrandon/ohbrandon.github.io/refs/heads/main/linked.png" style="width:64px;" alt="LinkedIn"></a>
-<a href="https://github.com" target="_blank"><img src="https://raw.githubusercontent.com/ohbrandon/ohbrandon.github.io/refs/heads/main/git.png" style="width:64px;" alt="Git"></a>
+                    <p>
+                        <a href="https://tinyurl.com/yunu2p82" target="_blank">
+                            <img src="https://raw.githubusercontent.com/ohbrandon/ohbrandon.github.io/refs/heads/main/resume.png" alt="PDF Resume">
+                        </a>
+                        <a href="https://linkedin.com/in/brandonayerss" target="_blank">
+                            <img src="https://raw.githubusercontent.com/ohbrandon/ohbrandon.github.io/refs/heads/main/linked.png" alt="LinkedIn">
+                        </a>
+                        <a href="https://github.com" target="_blank">
+                            <img src="https://raw.githubusercontent.com/ohbrandon/ohbrandon.github.io/refs/heads/main/git.png" alt="Git">
+                        </a>
                     </p>
                 </div>
             </div>
             <div class="avatar">
-<img src="https://raw.githubusercontent.com/ohbrandon/ohbrandon.github.io/refs/heads/main/thumb.jpg"></div>
-        </div>
+                <img src="https://raw.githubusercontent.com/ohbrandon/ohbrandon.github.io/refs/heads/main/thumb.jpg">
+            </div>
+        </header>
+
         <div class="focus">
             <h2>Focus</h2>
             <ul>
                 <li>Mobile Product Strategy</li>
                 <li>Relationship Management</li>
-		<li>Permission Exploitation</li>
+                <li>Permission Exploitation</li>
                 <li>Product/Feature Expansion</li>
                 <li>Hacking and Experimentation</li>
-		<li>Applied Artificial Intelligence</li>
+                <li>Applied Artificial Intelligence</li>
             </ul>
-      </div>
-
+        </div>
     </div>
-<div class="foot">© 2025 Brandon Ayers | Made in Texas <img src="https://raw.githubusercontent.com/ohbrandon/ohbrandon.github.io/refs/heads/main/texas.png" style="width:10px; vertical-align:middle" alt="Texas!"></div>
+
+    <footer>
+        © 2025 Brandon Ayers | Made in Texas
+        <img src="https://raw.githubusercontent.com/ohbrandon/ohbrandon.github.io/refs/heads/main/texas.png" alt="Texas!">
+    </footer>
 </body>
 </html>
 
