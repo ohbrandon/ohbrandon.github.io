@@ -25,7 +25,14 @@
     <title>Brandon Ayers | Information & CV</title>
 
     <script defer src="https://cloud.umami.is/script.js" data-website-id="36ba1462-d2b5-44fc-b0d6-250b2f3ba013"></script>
+    
+    <script>
+        var encEmail = "aGVsbG9AYnJhbmRvbmF5ZXJzLmNvbQ==";
+        const form = document.getElementById("contact");
+        form.setAttribute("href", "mailto:".concat(atob(encEmail)));
+                                    </script>
 
+                                    
     <link rel="icon" type="image/x-icon" href="https://github.com/ohbrandon/ohbrandon.github.io/raw/refs/heads/main/favicon.ico">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans">  
 
@@ -226,11 +233,7 @@
                         <a href="https://patents.google.com/?inventor=Brandon+Brent+AYERS" target="_blank">
                             <img src="https://raw.githubusercontent.com/ohbrandon/ohbrandon.github.io/refs/heads/main/patents.png" alt="Patents">
                         </a>
-                        <script>
-var encEmail = "aGVsbG9AYnJhbmRvbmF5ZXJzLmNvbQ==";
-const form = document.getElementById("contact");
-form.setAttribute("href", "mailto:".concat(atob(encEmail)));
-                            </script>
+
                             
                             <a id="contact" href=""><img src="https://raw.githubusercontent.com/ohbrandon/ohbrandon.github.io/refs/heads/main/email.png" alt="Email">
                             </a>
