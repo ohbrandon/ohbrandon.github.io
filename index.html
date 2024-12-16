@@ -217,7 +217,7 @@
                 <p>Phone Nerd, Academic Delinquent, Analogy Enthusiast</p>
                 <div class="contact-info">
                     <p>
-                        <a href="https://tinyurl.com/yunu2p82" target="_blank">
+                        <a href="https://brandonayers.com/resume.pdf" target="_blank">
                             <img src="https://raw.githubusercontent.com/ohbrandon/ohbrandon.github.io/refs/heads/main/resume.png" alt="PDF Resume">
                         </a>
                         <a href="https://linkedin.com/in/brandonayerss" target="_blank">
@@ -227,13 +227,12 @@
                             <img src="https://raw.githubusercontent.com/ohbrandon/ohbrandon.github.io/refs/heads/main/patents.png" alt="Patents">
                         </a>
                         <script>
-                            var me = "hello";
-                            var place = "brandonayers.com";
-                            var elink = document.getElementById("mlink");
-                            elink.href = `mailto:${me}@${place}`;
+var encEmail = "aGVsbG9AYnJhbmRvbmF5ZXJzLmNvbQ==";
+const form = document.getElementById("contact");
+form.setAttribute("href", "mailto:".concat(atob(encEmail)));
                             </script>
                             
-                            <a id="mlink" href="#"><img src="https://raw.githubusercontent.com/ohbrandon/ohbrandon.github.io/refs/heads/main/mail.png" alt="Email">
+                            <a id="contact" href=""><img src="https://raw.githubusercontent.com/ohbrandon/ohbrandon.github.io/refs/heads/main/email.png" alt="Email">
                             </a>
 
                     </p>
