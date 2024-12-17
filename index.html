@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 
     <meta property="og:type" content="profile" />
-    <meta property="og:title" content="Brandon Ayers | Information & CV" />
+    <meta property="og:title" content="Brandon Ayers | Information, Contact & CV" />
     <meta property="og:url" content="https://brandonayers.com" />
     <meta
       property="og:image"
@@ -62,22 +62,25 @@
         }
 
         header {
-            display: flex;
-            justify-content: space-between;
+            display: grid;
+            grid-template-columns: 1fr max-content;
             align-items: center;
         }
 
-        .profile {
-            display: flex;
-            flex-direction: column;
+        header :not(.avatar) {
+            grid-column: 1;
         }
 
-        .profile h1 {
+        .profile {
+            padding-top: 15px;
+        }
+
+        h1 {
             margin: 0;
             font-size: 24px;
         }
 
-        .profile p {
+        .desc {
             margin: 5px 0 10px;
     	    padding: 0px 10px 0px 0px;
             font-size: 14px;
@@ -100,13 +103,19 @@
             margin-right: 3px;
             width: 10px;
             animation: focusLoad 4s ease-in-out;
+        }
 
+        footer .logo {
+            margin-bottom: 2px;
         }
 
         .avatar {
             width: 136px;
             height: 180px;
             border-radius: 10px;
+            margin-left: 1rem;
+            grid-row: 1 / span 3;
+            grid-column: 2;
         }
 
         .avatar img {
@@ -117,14 +126,26 @@
         }
 
         .contact-info {
-            margin-top: 10px;
+            display: flex;
+            padding: 15px 0 10px;
             font-size: 12px;
+        }
+
+        @media screen and (max-width: 420px) {
+            header .contact-info {
+                grid-column: 1 / span 2;
+                justify-content: space-around;
+            }
+
+            .avatar {
+                grid-row: 1 / span 2;
+            }
         }
 
         .contact-info img {
             opacity: 0.85;
             transition: opacity 0.5s;
-            width: 62px;
+            width: 100%;
         }
 
         .contact-info img:hover {
@@ -133,6 +154,7 @@
 
         .contact-info a {
             color: #67A6FF;
+            flex: 0 1 64px;
             font-size: 13px;
             text-decoration: none;
             transition: color 0.3s ease;
@@ -215,32 +237,21 @@
         <header>
             <div class="profile">
                 <h1>Brandon Ayers</h1>
-                <p>Phone Nerd, Academic Delinquent, Analogy Enthusiast</p>
-                <div class="contact-info">
-                    <p>
-                        <a href="https://brandonayers.com/brandon_ayers_resume_2024.pdf" target="_blank">
-                            <img src="https://raw.githubusercontent.com/ohbrandon/ohbrandon.github.io/refs/heads/main/resume.png" alt="PDF Resume">
-                        </a>
-                        <a href="https://linkedin.com/in/brandonayerss" target="_blank">
-                            <img src="https://raw.githubusercontent.com/ohbrandon/ohbrandon.github.io/refs/heads/main/linked.png" alt="LinkedIn">
-                        </a>
-                        <a href="https://patents.google.com/?inventor=Brandon+Brent+AYERS" target="_blank">
-                            <img src="https://raw.githubusercontent.com/ohbrandon/ohbrandon.github.io/refs/heads/main/patents.png" alt="Patents">
-                        </a>
-                        <script type="text/javascript">
-                            function decodeBase64(encoded) {
-                              return decodeURIComponent(atob(encoded).split('').map(function(c) {
-                                return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
-                              }).join(''));
-                            }
-                            let encoded = "aGVsbG9AYnJhbmRvbmF5ZXJzLmNvbQ==";
-                            let email = decodeBase64(encoded);
-                            document.write('<a href="mailto:' + email + '">' + '<img src="email.png">' + '</a>');
-                          </script>
-                            
-
-                    </p>
-                </div>
+                <p class="desc">Phone Nerd, Academic Delinquent, Analogy Enthusiast</p>
+            </div>
+            <div class="contact-info">
+                <a href="https://brandonayers.com/brandon_ayers_resume_2024.pdf" target="_blank">
+                    <img src="https://raw.githubusercontent.com/ohbrandon/ohbrandon.github.io/refs/heads/main/resume.png" alt="PDF Resume">
+                </a>
+                <a href="https://linkedin.com/in/brandonayerss" target="_blank">
+                    <img src="https://raw.githubusercontent.com/ohbrandon/ohbrandon.github.io/refs/heads/main/linked.png" alt="LinkedIn">
+                </a>
+                <a href="https://patents.google.com/?inventor=Brandon+Brent+AYERS" target="_blank">
+                    <img src="https://raw.githubusercontent.com/ohbrandon/ohbrandon.github.io/refs/heads/main/patents.png" alt="Patents">
+                </a>
+                <a data-id="email">
+                    <img src="email.png">
+                </a>
             </div>
             <div class="avatar">
                 <img src="https://raw.githubusercontent.com/ohbrandon/ohbrandon.github.io/refs/heads/main/thumb.jpg">
@@ -253,7 +264,7 @@
                 <li>Mobile Product Strategy</li>
                 <li>Relationship Management</li>
                 <li>Permission Exploitation</li>
-                <li>Product/Feature Expansion</li>
+                <li>Product/<wbr>Feature Expansion</li>
                 <li>Hacking and Experimentation</li>
                 <li>Applied Artificial Intelligence</li>
             </ul>
@@ -261,9 +272,22 @@
     </div>
 
     <footer>
-        <img class="logo" style="margin-bottom: 2px" src= "https://raw.githubusercontent.com/ohbrandon/ohbrandon.github.io/refs/heads/main/logo.png" alt="ba"> 2025 Brandon Ayers ┊ Made in Texas
+        <img class="logo" src="https://raw.githubusercontent.com/ohbrandon/ohbrandon.github.io/refs/heads/main/logo.png" alt="ba">
+        2025 Brandon Ayers ┊ Made in Texas
         <img src= "https://raw.githubusercontent.com/ohbrandon/ohbrandon.github.io/refs/heads/main/texas.png" alt="Texas!">
     </footer>
+
+    <script>
+        function decodeBase64(encoded) {
+          return decodeURIComponent(atob(encoded).split('').map(function(c) {
+            return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+          }).join(''));
+        }
+        const encoded = "aGVsbG9AYnJhbmRvbmF5ZXJzLmNvbQ==";
+        const email = decodeBase64(encoded);
+        document.querySelector('[data-id=email]').setAttribute('href', `mailto:${email}`);
+        // document.write('<a href="mailto:' + email + '">' + '<img src="email.png">' + '</a>');
+    </script>
 </body>
 </html>
 
