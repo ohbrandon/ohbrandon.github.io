@@ -25,14 +25,7 @@
     <title>Brandon Ayers | Information & CV</title>
 
     <script defer src="https://cloud.umami.is/script.js" data-website-id="36ba1462-d2b5-44fc-b0d6-250b2f3ba013"></script>
-    
-    <script>
-        var encEmail = "aGVsbG9AYnJhbmRvbmF5ZXJzLmNvbQ==";
-        const form = document.getElementById("contact");
-        form.setAttribute("href", "mailto:".concat(atob(encEmail)));
-                                    </script>
 
-                                    
     <link rel="icon" type="image/x-icon" href="https://github.com/ohbrandon/ohbrandon.github.io/raw/refs/heads/main/favicon.ico">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans">  
 
@@ -224,7 +217,7 @@
                 <p>Phone Nerd, Academic Delinquent, Analogy Enthusiast</p>
                 <div class="contact-info">
                     <p>
-                        <a href="https://brandonayers.com/resume.pdf" target="_blank">
+                        <a href="https://tinyurl.com/yunu2p82" target="_blank">
                             <img src="https://raw.githubusercontent.com/ohbrandon/ohbrandon.github.io/refs/heads/main/resume.png" alt="PDF Resume">
                         </a>
                         <a href="https://linkedin.com/in/brandonayerss" target="_blank">
@@ -233,18 +226,34 @@
                         <a href="https://patents.google.com/?inventor=Brandon+Brent+AYERS" target="_blank">
                             <img src="https://raw.githubusercontent.com/ohbrandon/ohbrandon.github.io/refs/heads/main/patents.png" alt="Patents">
                         </a>
-
+                        <script>
+                            var me = "hello";
+                            var place = "brandonayers.com";
+                            var elink = document.getElementById("mlink");
+                            elink.href = `mailto:${me}@${place}`;
+                            </script>
                             
-                            <a id="contact" href=""><img src="https://raw.githubusercontent.com/ohbrandon/ohbrandon.github.io/refs/heads/main/email.png" alt="Email">
+                            <a id="mlink" href="#"><img src="https://raw.githubusercontent.com/ohbrandon/ohbrandon.github.io/refs/heads/main/mail.png" alt="Email">
                             </a>
-                            <script type="text/javascript">
-                                function decodeBase64(encoded) {
-                                  return decodeURIComponent(atob(encoded).split('').map(function(c) {
-                                    return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
-                                  }).join(''));
-                                }
-                                let encoded = "aGVsbG9AYnJhbmRvbmF5ZXJzLmNvbQ==";
-                                let email = decodeBase64(encoded);
+
+                    </p>
+                </div>
+            </div>
+            <div class="avatar">
+                <img src="https://raw.githubusercontent.com/ohbrandon/ohbrandon.github.io/refs/heads/main/thumb.jpg">
+            </div>
+        </header>
+
+        <div class="focus">
+            <h2>Focus</h2>
+            <ul>
+                <li>Mobile Product Strategy</li>
+                <li>Relationship Management</li>
+                <li>Permission Exploitation</li>
+                <li>Product/Feature Expansion</li>
+                <li>Hacking and Experimentation</li>
+                <li>Applied Artificial Intelligence</li>
+            </ul>
         </div>
     </div>
 
