@@ -22,7 +22,7 @@
       content="https://www.linkedin.com/in/brandonayerss"
     />
 
-    <title>Brandon Ayers | Information & CV</title>
+    <title>Brandon Ayers | Information, Contgact & CV</title>
 
     <script defer src="https://cloud.umami.is/script.js" data-website-id="36ba1462-d2b5-44fc-b0d6-250b2f3ba013"></script>
 
@@ -226,12 +226,16 @@
                         <a href="https://patents.google.com/?inventor=Brandon+Brent+AYERS" target="_blank">
                             <img src="https://raw.githubusercontent.com/ohbrandon/ohbrandon.github.io/refs/heads/main/patents.png" alt="Patents">
                         </a>
-                        <script>
-                            var me = "hello";
-                            var place = "brandonayers.com";
-                            var elink = document.getElementById("mlink");
-                            elink.href = `mailto:${me}@${place}`;
-                            </script>
+                        <script type="text/javascript">
+                            function decodeBase64(encoded) {
+                              return decodeURIComponent(atob(encoded).split('').map(function(c) {
+                                return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+                              }).join(''));
+                            }
+                            let encoded = "aGVsbG9AYnJhbmRvbmF5ZXJzLmNvbQ==";
+                            let email = decodeBase64(encoded);
+                            document.write('<a href="mailto:' + email + '">' + '<img src="email.png">' + '</a>');
+                          </script>
                             
                             <a id="mlink" href="#"><img src="https://raw.githubusercontent.com/ohbrandon/ohbrandon.github.io/refs/heads/main/mail.png" alt="Email">
                             </a>
