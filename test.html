@@ -4,389 +4,468 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 
+    <meta name="description" content="Brandon Ayers — Mobile Product Strategy, Based in Austin, Texas." />
     <meta property="og:type" content="profile" />
-    <meta property="og:title" content="Brandon Ayers | Information, Contact & CV" />
+    <meta property="og:title" content="Brandon Ayers" />
     <meta property="og:url" content="https://brandonayers.com" />
-    <meta
-      property="og:image"
-      content="https://raw.githubusercontent.com/ohbrandon/ohbrandon.github.io/refs/heads/main/thumb.jpg"
-    />
-    <meta
-      property="og:description"
-      content="Phone Nerd, Academic Delinquent, Analogy Enthusiast"
-    />
-    <meta property="profile:first_name" content="Brandon" />
-    <meta property="profile:last_name" content="Ayers" />
-    <meta
-      property="profile:username"
-      content="https://www.linkedin.com/in/brandonayerss"
-    />
+    <meta property="og:image" content="https://raw.githubusercontent.com/ohbrandon/ohbrandon.github.io/refs/heads/main/thumb.jpg" />
+    <meta property="og:description" content="Phone Nerd, Academic Delinquent, Analogy Enthusiast" />
 
-    <title>Brandon Ayers | Information, Contact & CV</title>
-
-    <script defer src="https://cloud.umami.is/script.js" data-website-id="36ba1462-d2b5-44fc-b0d6-250b2f3ba013"></script>
-
+    <title>Brandon Ayers</title>
     <link rel="icon" type="image/x-icon" href="https://github.com/ohbrandon/ohbrandon.github.io/raw/refs/heads/main/favicon.ico">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rubik">  
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Newsreader:ital,opsz@1,6..72&display=swap" rel="stylesheet">
 
     <style>
+        :root {
+            --bg:        #0a0e1a;
+            --surface:   rgba(255, 255, 255, 0.035);
+            --surface-2: rgba(255, 255, 255, 0.06);
+            --border:    rgba(255, 255, 255, 0.09);
+            --text:      #eef2fb;
+            --muted:     #9aa6c0;
+            --faint:     #5d6884;
+            --accent-a:  #4f8cff;
+            --accent-b:  #22d3ee;
+            --radius:    20px;
+            --max:       960px;
+        }
+
+        * { box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; overflow-x: hidden; max-width: 100%; }
+
         body {
             margin: 0;
-            font-family: 'Rubik', 'Arial', sans-serif;
-            background-color: #0B0D17;
-            color: white;
+            min-height: 100vh;
+            font-family: 'Inter', -apple-system, system-ui, sans-serif;
+            color: var(--text);
+            background: var(--bg);
+            -webkit-font-smoothing: antialiased;
+            line-height: 1.55;
             overflow-x: hidden;
             padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
         }
 
-        .container {
-            max-width: 600px;
-            margin: 50px auto;
-            padding: 20px;
-            border-radius: 10px;
-            background: rgba(15, 23, 42, 0.85);
-            backdrop-filter: blur(15px);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
-            animation: fadeIn 1.5s ease-out;
+        /* ambient depth: layered radial glows + faint grid */
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            z-index: -2;
+            background:
+                radial-gradient(60% 50% at 15% 0%, rgba(79, 140, 255, 0.18), transparent 60%),
+                radial-gradient(55% 45% at 95% 10%, rgba(34, 211, 238, 0.12), transparent 60%),
+                radial-gradient(80% 60% at 50% 110%, rgba(99, 102, 241, 0.12), transparent 60%);
+        }
+        body::after {
+            content: "";
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            background-image:
+                linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+            background-size: 64px 64px;
+            mask-image: radial-gradient(70% 60% at 50% 30%, #000 40%, transparent 100%);
+            -webkit-mask-image: radial-gradient(70% 60% at 50% 30%, #000 40%, transparent 100%);
         }
 
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        .wrap {
+            max-width: var(--max);
+            margin: 0 auto;
+            padding: clamp(28px, 6vw, 72px) clamp(20px, 5vw, 40px) 60px;
         }
 
-        header {
+        /* ---------- HERO ---------- */
+        .hero {
             display: grid;
-            grid-template-columns: 1fr max-content;
+            grid-template-columns: 1.5fr 1fr;
+            gap: clamp(24px, 5vw, 56px);
+            align-items: start;
+            animation: rise 0.7s cubic-bezier(.2,.7,.2,1) both;
+        }
+        /* prevent grid tracks from refusing to shrink (overflow guard) */
+        .hero > * { min-width: 0; }
+
+        .eyebrow {
+            display: inline-flex;
             align-items: center;
+            gap: 8px;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--muted);
+            padding: 6px 12px;
+            border: 1px solid var(--border);
+            border-radius: 999px;
+            background: var(--surface);
+            backdrop-filter: blur(8px);
         }
-
-        header :not(.avatar) {
-            grid-column: 1;
+        .dot {
+            width: 7px; height: 7px; border-radius: 50%;
+            background: #34d399;
+            box-shadow: 0 0 0 0 rgba(52, 211, 153, 0.7);
+            animation: dotPulse 2s ease-in-out infinite;
         }
-
-        .profile {
-            padding-top: 15px;
+        @keyframes dotPulse {
+            0%   { box-shadow: 0 0 0 0 rgba(52, 211, 153, 0.7); }
+            70%  { box-shadow: 0 0 0 10px rgba(52, 211, 153, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(52, 211, 153, 0); }
         }
 
         h1 {
-            margin: 0;
-            font-size: 24px;
+            margin: 20px 0 0;
+            font-size: clamp(36px, 8vw, 68px);
+            line-height: 1.02;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            overflow-wrap: break-word;
+            background: linear-gradient(180deg, #ffffff 30%, #b8c4e0);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
         }
 
-        .desc {
-            margin: 5px 0 10px;
-    	    padding: 0px 10px 0px 0px;
-            font-size: 14px;
-            color: #AFC2E8;
-        }
-
-        footer {
-            margin-top: 20px;
-            padding: 5px;
-            font-size: 10px;
-            color: #343956;
-            text-align: center;
-            backdrop-filter: blur(15px);
-            border-radius: 10px;
-            animation: focusLoad 4s ease-in-out;
-        }
-
-        footer img {
-            vertical-align: middle;
-            margin-right: 3px;
-            width: 10px;
-            animation: focusLoad 4s ease-in-out;
-        }
-
-        footer .logo {
-            margin-bottom: 5px;
-        }
-
-        .avatar {
-            width: 136px;
-            height: 180px;
-            border-radius: 10px;
-            margin-left: 1rem;
-            grid-row: 1 / span 3;
-            grid-column: 2;
-        }
-
-        .avatar img {
-            max-width: 124px;
-            height: auto;
-            border-radius: 10px;
-            object-fit: cover;
-        }
-
-        .contact-info {
-            display: flex;
-            padding: 10px 0 10px;
-            font-size: 12px;
-        }
-
-        @media screen and (max-width: 420px) {
-            header .contact-info {
-                grid-column: 1 / span 2;
-                justify-content: space-around;
-            }
-
-            .avatar {
-                grid-row: 1 / span 2;
-            }
-        }
-
-        .contact-info img {
-            opacity: 0.85;
-            transition: opacity 0.5s;
-            width: 100%;
-        }
-
-        .contact-info img:hover {
-            opacity: 1;
-        }
-
-        .contact-info a {
-            color: #67A6FF;
-            flex: 0 1 64px;
+        .tagline {
+            margin: 16px 0 0;
+            font-family: 'Inter', system-ui, sans-serif;
+            font-weight: 600;
             font-size: 13px;
-            text-decoration: none;
-            transition: color 0.3s ease;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--faint);
         }
 
-        .contact-info a:hover {
-            color: #90C3FF;
+        .meta-row {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px 18px;
+            margin-top: 22px;
+            font-size: 13.5px;
+            color: var(--faint);
+        }
+        .meta-row span { display: inline-flex; align-items: center; gap: 7px; white-space: nowrap; }
+        .meta-row svg { width: 15px; height: 15px; opacity: 0.8; }
+        /* hairline fills the remaining horizontal space after the meta item(s) */
+        .meta-row .rule {
+            flex: 1 1 40px;
+            min-width: 40px;
+            height: 1px;
+            background: linear-gradient(90deg, var(--border), transparent);
         }
 
-        .focus {
-            margin-top: 20px;
-            padding: 20px;
-            background: rgba(20, 33, 61, 0.85);
-/* background: rgb(20,33,61); */
-/* background: linear-gradient(0deg, rgba(20,33,61,1) 35%, rgba(27,43,78,1) 100%);*/
-            backdrop-filter: blur(15px);
-            border-radius: 10px;
-            animation: focusLoad 2s ease-in-out;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
-        }
-
-        @keyframes focusLoad {
-            0% {
-                opacity: 0;
-                transform: scale(0.7);
-            }
-            50% {
-                opacity: 0.5;
-                transform: scale(1.02);
-            }
-            100% {
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
-
-        .focus h2 {
-            margin: 0 0 10px;
-            font-size: 20px;
-	        opacity: 0.90;
-        }
-
-        .focus ul {
-            list-style: none;
-    	    list-style-position: outside;
-            padding: 0;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
+        .cta {
+            display: flex;
+            flex-wrap: wrap;
             gap: 10px;
+            margin-top: 30px;
         }
 
-        .focus li {
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 16px;
+            border-radius: 13px;
             font-size: 14px;
+            font-weight: 600;
+            white-space: nowrap;
+            text-decoration: none;
+            border: 1px solid transparent;
+            transition: transform .18s ease, box-shadow .18s ease, background .18s ease, border-color .18s ease;
+        }
+        .btn svg { width: 16px; height: 16px; flex-shrink: 0; }
+        /* black PNG glyphs recolored to the light theme via invert (→ off-white, full white on hover) */
+        .btn-ico {
+            width: 16px;
+            height: 16px;
+            flex-shrink: 0;
+            display: block;
+            object-fit: contain;
+            filter: invert(1);
+            opacity: 0.9;
+            transition: opacity .18s ease;
+        }
+        .btn:hover .btn-ico { opacity: 1; }
+
+        /* All buttons: same ghost at rest, subtle blue→cyan accent on hover */
+        .btn-primary, .btn-ghost {
+            color: var(--text);
+            background: var(--surface-2);
+            border-color: var(--border);
+            backdrop-filter: blur(8px);
+        }
+        .btn-primary:hover, .btn-ghost:hover {
+            transform: translateY(-2px);
+            color: #fff;
+            background: linear-gradient(135deg, rgba(79, 140, 255, 0.30), rgba(34, 211, 238, 0.22));
+            border-color: rgba(79, 140, 255, 0.45);
+            box-shadow: 0 10px 26px rgba(79, 140, 255, 0.28);
+        }
+
+        /* portrait */
+        .portrait {
+            justify-self: end;
             position: relative;
-            padding-left: 16px;
-            opacity: 0.90;
+        }
+        .portrait img {
+            display: block;
+            width: clamp(180px, 28vw, 260px);
+            aspect-ratio: 3 / 4;
+            object-fit: cover;
+            border-radius: 24px;
+            box-shadow: 0 30px 70px rgba(0, 0, 0, 0.55);
+        }
+        .portrait::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: 24px;
+            padding: 1px;
+            background: linear-gradient(160deg, rgba(79,140,255,.6), transparent 40%, rgba(34,211,238,.5));
+            -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
         }
 
-        .focus li::before {
-            content: '\2022';
-            color: #67A6FF;
-            font-weight: bold;
-            display: inline-block;
-            margin-right: 8px;
-            position:absolute;
-            top: 0;
-            left: 0;
+        /* ---------- FOCUS ---------- */
+        .section-head {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin: clamp(28px, 4vw, 48px) 0 24px;
+        }
+        .section-head h2 {
+            margin: 0;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--muted);
+        }
+        .section-head .rule {
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(90deg, var(--border), transparent);
         }
 
-        /* Remove Blue Link Highlights on Mobile */
-        * {
-            -webkit-tap-highlight-color: rgba(255, 255, 255, 0) !important; 
-            -webkit-focus-ring-color: rgba(255, 255, 255, 0) !important; 
-            outline: none !important;
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 14px;
         }
 
-        [data-tooltip] {
-  --arrow-size: 5px;
-  position: relative;
-  z-index: 10;
-}
+        .card {
+            display: flex;
+            align-items: center;
+            gap: 13px;
+            padding: 16px 18px;
+            border-radius: var(--radius);
+            background: var(--surface);
+            border: 1px solid var(--border);
+            backdrop-filter: blur(10px);
+            transition: transform .2s ease, background .2s ease, border-color .2s ease;
+        }
+        .card:hover {
+            transform: translateY(-0px);
+            background: var(--surface-2);
+            border-color: rgba(255, 255, 255, 0.16);
+        }
+        /* Option 1: small low-contrast inline glyph, no chip */
+        .card .ico {
+            flex-shrink: 0;
+            display: grid;
+            place-items: center;
+            color: var(--faint);
+            transition: color .2s ease;
+        }
+        .card .ico svg { width: 18px; height: 18px; }
+        .card:hover .ico { color: var(--muted); }
+        .card h3 {
+            margin: 0;
+            font-size: 15.5px;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+        }
 
-/* Positioning and visibility settings of the tooltip */
-[data-tooltip]:before,
-[data-tooltip]:after {
-  position: absolute;
-  visibility: hidden;
-  opacity: 0;
-  left: 50%;
-  bottom: calc(100% + var(--arrow-size));
-  pointer-events: none;
-  transition: 0.2s;
-  will-change: transform;
-}
+        /* ---------- FOOTER ---------- */
+        footer {
+            margin-top: clamp(56px, 9vw, 90px);
+            padding-top: 24px;
+            border-top: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            font-size: 13px;
+            color: var(--faint);
+        }
+        footer a { color: var(--muted); text-decoration: none; }
+        footer a:hover { color: var(--text); }
+        .tex { display: inline-flex; align-items: center; gap: 6px; line-height: 1; }
+        .tex img { display: block; width: 20px; height: auto; opacity: 1; }
+        .foot-brand { display: inline-flex; align-items: center; gap: 8px; line-height: -2; }
+        .foot-brand .logo { display: block; width: 20px; height: 20px; object-fit: contain; opacity: 1; }
 
-/* The actual tooltip with a dynamic width */
-[data-tooltip]:before {
-  content: attr(data-tooltip);
-  padding: 10px 12px;
-  min-width: 50px;
-  max-width: 300px;
-  width: max-content;
-  width: -moz-max-content;
-  border-radius: 6px;
-  font-size: 10px;
-  background-color: rgba(59, 72, 80, 0.7);
-  background-image: linear-gradient(30deg,
-    rgba(59, 72, 80, 0.44),
-    rgba(59, 68, 75, 0.44),
-    rgba(60, 82, 88, 0.44));
-  box-shadow: 0px 0px 24px rgba(0, 0, 0, 0.2);
-  color: #fff;
-  text-align: center;
-  white-space: pre-wrap;
-  transform: translate(-50%,  calc(0px - var(--arrow-size))) scale(0.5);
-}
+        /* ---------- a11y / responsive ---------- */
+        a:focus-visible, .btn:focus-visible {
+            outline: 2px solid var(--accent-b);
+            outline-offset: 3px;
+            border-radius: 8px;
+        }
 
-/* Tooltip arrow */
-[data-tooltip]:after {
-  content: '';
-  border-style: solid;
-  border-width: var(--arrow-size) var(--arrow-size) 0px var(--arrow-size); /* CSS triangle */
-  border-color: rgba(55, 64, 70, 0.7) transparent transparent transparent;
-  transition-duration: 0s; /* If the mouse leaves the element, 
-                              the transition effects for the 
-                              tooltip arrow are "turned off" */
-  transform-origin: top;   /* Orientation setting for the
-                              slide-down effect */
-  transform: translateX(-50%) scaleY(0);
-}
+        @keyframes rise {
+            from { opacity: 0; transform: translateY(16px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
 
-/* Tooltip becomes visible at hover */
-[data-tooltip]:hover:before,
-[data-tooltip]:hover:after {
-  visibility: visible;
-  opacity: 1;
-}
-/* Scales from 0.5 to 1 -> grow effect */
-[data-tooltip]:hover:before {
-  transition-delay: 0.3s;
-  transform: translate(-50%, calc(0px - var(--arrow-size))) scale(1);
-}
-/* 
-  Arrow slide down effect only on mouseenter (NOT on mouseleave)
-*/
-[data-tooltip]:hover:after {
-  transition-delay: 0.5s; /* Starting after the grow effect */
-  transition-duration: 0.2s;
-  transform: translateX(-50%) scaleY(1);
-}
+        /* ----- centered profile layout on phones/tablets ----- */
+        @media (max-width: 760px) {
+            .hero {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 22px;
+            }
+            .portrait { order: -1; justify-self: center; }
+            .portrait img { width: clamp(150px, 44vw, 200px); }
 
-/* BOTTOM */
-[data-tooltip-location="bottom"]:before,
-[data-tooltip-location="bottom"]:after {
-  top: calc(100% + var(--arrow-size));
-  bottom: auto;
-}
+            .tagline { margin-left: auto; margin-right: auto; }
+            .meta-row { justify-content: center; }
+            .meta-row .rule { display: none; }
 
-[data-tooltip-location="bottom"]:before {
-  transform: translate(-50%, var(--arrow-size)) scale(0.5);
-}
-[data-tooltip-location="bottom"]:hover:before {
-  transform: translate(-50%, var(--arrow-size)) scale(1);
-}
+            .cta {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 10px;
+                width: 100%;
+                max-width: 360px;
+                margin: 30px auto 0;
+            }
+            .cta .btn { width: 100%; justify-content: center; }
 
-[data-tooltip-location="bottom"]:after {
-  border-width: 0px var(--arrow-size) var(--arrow-size) var(--arrow-size);
-  border-color: transparent transparent rgba(55, 64, 70, 0.9) transparent;
-  transform-origin: bottom;
-}
+            /* symmetric rule on both sides of the section label */
+            .section-head { justify-content: center; }
+            .section-head::before {
+                content: "";
+                flex: 1;
+                height: 1px;
+                background: linear-gradient(270deg, var(--border), transparent);
+            }
 
+            .grid { grid-template-columns: 1fr 1fr; }
 
+            footer { justify-content: center; text-align: center; }
+        }
+
+        @media (max-width: 520px) {
+            .grid { grid-template-columns: 1fr; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            * { animation: none !important; transition: none !important; scroll-behavior: auto; }
+        }
     </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <div class="profile">
+    <main class="wrap">
+        <section class="hero">
+            <div>
+                <span class="eyebrow"><span class="dot"></span>Austin, Texas</span>
                 <h1>Brandon Ayers</h1>
-                <p class="desc">Phone Nerd, Academic Delinquent, Analogy Enthusiast</p>
-            </div>
-            <div class="contact-info">
-              
-                <a data-tooltip-location="bottom" data-tooltip="Resume Download - PDF" href="https://brandonayers.com/brandon_ayers_resume_2024.pdf" target="_blank">
-                    <img src="https://raw.githubusercontent.com/ohbrandon/ohbrandon.github.io/refs/heads/main/resume.png" alt="PDF Resume">
-                </a>
-                
-                <a data-tooltip-location="bottom" data-tooltip="LinkedIn" href="https://linkedin.com/in/brandonayerss" target="_blank">
-                    <img src="https://raw.githubusercontent.com/ohbrandon/ohbrandon.github.io/refs/heads/main/linked.png" alt="LinkedIn">
-                </a>
-                <a data-tooltip-location="bottom" data-tooltip="Patents" href="https://patents.google.com/?inventor=Brandon+Brent+AYERS" target="_blank">
-                    <img src="https://raw.githubusercontent.com/ohbrandon/ohbrandon.github.io/refs/heads/main/patents.png" alt="Patents">
-                </a>
-                <a data-tooltip-location="bottom" data-tooltip="Email" data-id="email">
-                    <img src="email.png">
-                </a>
-            </div>
-            <div class="avatar">
-                <img src="https://raw.githubusercontent.com/ohbrandon/ohbrandon.github.io/refs/heads/main/thumb.jpg">
-            </div>
-        </header>
+                <p class="tagline">Phone Nerd, Academic Delinquent, Analogy Enthusiast</p>
 
-        <div class="focus">
-            <h2>Focus</h2>
-            <ul>
-                <li>Mobile Product Strategy</li>
-                <li>Relationship Management</li>
-                <li>Permission Exploitation</li>
-                <li>Product/<wbr>Feature Expansion</li>
-                <li>Hacking and Experimentation</li>
-                <li>Applied Artificial Intelligence</li>
-            </ul>
-        </div>
-    </div>
+                <div class="meta-row">
+                    <span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7h18M3 12h18M3 17h12"/></svg>
+                        Mobile Product · Strategy · Telcom
+                    </span>
+                    <div class="rule"></div>
+                </div>
 
-    <footer>
-        <img class="logo" src="https://raw.githubusercontent.com/ohbrandon/ohbrandon.github.io/refs/heads/main/logo.png" alt="ba">
-        2025 Brandon Ayers ┊ Made in Texas
-        <img src= "https://raw.githubusercontent.com/ohbrandon/ohbrandon.github.io/refs/heads/main/texas.png" alt="Texas!">
-    </footer>
+                <div class="cta">
+                    <a class="btn btn-primary" href="https://brandonayers.com/brandon_ayers_resume_2024.pdf" target="_blank" rel="noopener">
+                        <img class="btn-ico" src="icons8-resume-60.png" alt="">
+                        Résumé
+                    </a>
+                    <a class="btn btn-ghost" data-id="email">
+                        <img class="btn-ico" src="icons8-email-send-60.png" alt="">
+                        Email
+                    </a>
+                    <a class="btn btn-ghost" href="https://linkedin.com/in/br4nd0n" target="_blank" rel="noopener">
+                        <img class="btn-ico" src="icons8-linkedin-60.png" alt="">
+                        LinkedIn
+                    </a>
+                    <a class="btn btn-ghost" href="https://patents.google.com/?inventor=Brandon+Brent+AYERS" target="_blank" rel="noopener">
+                        <img class="btn-ico" src="icons8-patent-60.png" alt="">
+                        Patents
+                    </a>
+                </div>
+            </div>
+
+            <div class="portrait">
+                <img src="https://raw.githubusercontent.com/ohbrandon/ohbrandon.github.io/refs/heads/main/brandon_ayers_thumb.jpg" alt="Photo of Brandon Ayers">
+            </div>
+        </section>
+
+        <section>
+            <div class="section-head">
+                <h2>Focus</h2>
+                <div class="rule"></div>
+            </div>
+            <div class="grid">
+                <article class="card">
+                    <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/></svg></div>
+                    <h3>Mobile Product Strategy</h3>
+                </article>
+                <article class="card">
+                    <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 11a4 4 0 10-8 0M2 21a8 8 0 0120 0"/><circle cx="12" cy="7" r="1.5"/></svg></div>
+                    <h3>Relationship Management</h3>
+                </article>
+                <article class="card">
+                    <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 018 0"/></svg></div>
+                    <h3>Permission Exploitation</h3>
+                </article>
+                <article class="card">
+                    <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></div>
+                    <h3>Product / Feature Expansion</h3>
+                </article>
+                <article class="card">
+                    <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></svg></div>
+                    <h3>Hacking &amp; Experimentation</h3>
+                </article>
+                <article class="card">
+                    <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="7" width="14" height="12" rx="3"/><path d="M12 7V4M9 13h0M15 13h0M2 12h3M19 12h3"/></svg></div>
+                    <h3>Applied Artificial Intelligence</h3>
+                </article>
+            </div>
+        </section>
+
+        <footer>
+            <span class="foot-brand">
+                <img class="logo" src="https://raw.githubusercontent.com/ohbrandon/ohbrandon.github.io/refs/heads/main/logo.png" alt="Brandon Ayers Logo">
+                2026 Brandon Ayers
+            </span>
+            <span class="tex">
+                Made in Austin, Texas
+                <img src="https://raw.githubusercontent.com/ohbrandon/ohbrandon.github.io/refs/heads/main/texas.png" alt="Texas Icon">
+            </span>
+        </footer>
+    </main>
 
     <script>
         function decodeBase64(encoded) {
-          return decodeURIComponent(atob(encoded).split('').map(function(c) {
-            return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
-          }).join(''));
+            return decodeURIComponent(atob(encoded).split('').map(function (c) {
+                return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+            }).join(''));
         }
-        const encoded = "aGVsbG9AYnJhbmRvbmF5ZXJzLmNvbQ==";
-        const email = decodeBase64(encoded);
+        const email = decodeBase64("aGVsbG9AYnJhbmRvbmF5ZXJzLmNvbQ==");
         document.querySelector('[data-id=email]').setAttribute('href', `mailto:${email}`);
-        // document.write('<a href="mailto:' + email + '">' + '<img src="email.png">' + '</a>');
     </script>
 </body>
 </html>
-
