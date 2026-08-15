@@ -510,14 +510,34 @@
     </footer>
 
     <script>
-        function decodeBase64(encoded) {
-          return decodeURIComponent(atob(encoded).split('').map(function(c) {
-            return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
-          }).join(''));
-        }
-        const encoded = "aGVsbG9AYnJhbmRvbmF5ZXJzLmNvbQ==";
-        const email = decodeBase64(encoded);
-        document.querySelector('[data-id=email]').setAttribute('href', `mailto:${email}`);
+        (function () {
+            const packed = "0a04415e5f7254100043565f5c571b045f411e51590f";
+            const salt = "ba-2026";
+            const link = document.querySelector('[data-id=email]');
+            if (!link) return;
+
+            let ready = false;
+            function reveal() {
+                if (ready) return;
+                const addr = packed.match(/../g).map(function (pair, i) {
+                    return String.fromCharCode(parseInt(pair, 16) ^ salt.charCodeAt(i % salt.length));
+                }).join('');
+                link.setAttribute('href', 'mailto:' + addr);
+                ready = true;
+            }
+
+            link.setAttribute('href', '#');
+            ['pointerdown', 'pointerenter', 'touchstart', 'focus'].forEach(function (evt) {
+                link.addEventListener(evt, reveal, { once: true, passive: true });
+            });
+            link.addEventListener('click', function (e) {
+                if (!ready) {
+                    e.preventDefault();
+                    reveal();
+                    window.location.href = link.getAttribute('href');
+                }
+            });
+        })();
     </script>
 </body>
 </html>
